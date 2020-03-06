@@ -1,0 +1,10 @@
+C:\Users\songo\source\repos\FormComponent\FormComponent\bin\Debug\FormComponent.exe.config
+C:\Users\songo\source\repos\FormComponent\FormComponent\bin\Debug\FormComponent.exe
+C:\Users\songo\source\repos\FormComponent\FormComponent\bin\Debug\FormComponent.pdb
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.csprojAssemblyReference.cache
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.Form1.resources
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.Properties.Resources.resources
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.csproj.GenerateResource.cache
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.exe
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.pdb
+C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.Form.resources
