@@ -14,6 +14,7 @@ namespace FormComponent
         private Dictionary<string, string> errorMap;
         private Dictionary<string, string> regexMap;
         private Button submitButton;
+        Control destination;
         public Form()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace FormComponent
             errorLabels = new Dictionary<string, Control>();
             errorMap = new Dictionary<string, string>();
             regexMap = new Dictionary<string, string>();
-            tableLayoutPanel2.Height = 25;
+            tableLayoutPanel2.Height = 30;
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.ColumnCount = 1;
             submitButton = new Button();
@@ -50,9 +51,14 @@ namespace FormComponent
             errorLabel.AutoSize = false;
             errorLabel.TextAlign = ContentAlignment.MiddleCenter;
             errorLabel.Dock = DockStyle.None;
+            errorLabel.ForeColor = this.BackColor;
+           
             errorLabels.Add(name, errorLabel);
             tableLayoutPanel2.Controls.Add(nameLabel ,1, tableLayoutPanel2.RowCount-3);
-            tableLayoutPanel2.Controls.Add(new TextBox(),1, tableLayoutPanel2.RowCount-2);
+
+            componentMap.Add(name, new TextBox());
+            componentMap.TryGetValue(name, out Control textfield);
+            tableLayoutPanel2.Controls.Add(textfield, 1, tableLayoutPanel2.RowCount-2);
             tableLayoutPanel2.Controls.Add(errorLabel,1, tableLayoutPanel2.RowCount-1);
             
             
@@ -81,7 +87,8 @@ namespace FormComponent
                 if (!matcher.Success)
                 {
                     errorLabel.Text = errorMessage;
-                    errorLabel.Visible = true;
+                   
+                    errorLabel.ForeColor = Color.Black;
                     return false;
                 }
                 else
@@ -123,6 +130,7 @@ namespace FormComponent
             json += "}";
             if (isFormValid)
             {
+                clearFields();
                 return json;
             }else
             {
@@ -131,8 +139,21 @@ namespace FormComponent
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {   
+        {
+            destination.Text = getData();
+        }
 
+        public void setControl(Control control)
+        {
+            destination = control;
+        }
+
+        private void clearFields()
+        {
+            foreach (KeyValuePair<string, Control> entry in componentMap)
+            {
+                entry.Value.Text = "";
+            }
         }
     }
 }
