@@ -23,6 +23,7 @@ namespace FormComponent
             errorMap = new Dictionary<string, string>();
             regexMap = new Dictionary<string, string>();
             tableLayoutPanel2.Height = 30;
+            tableLayoutPanel2.Width = 150;
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.ColumnCount = 1;
             submitButton = new Button();
@@ -32,9 +33,10 @@ namespace FormComponent
 
         }
 
-        public void addField(String name, String type, String regex, String errorMessage)
+        public void addField(String labelName, String name, String type, String regex, String errorMessage)
         {   
            
+
             tableLayoutPanel2.Height += 75;
             tableLayoutPanel2.RowCount += 3;
 
@@ -44,7 +46,7 @@ namespace FormComponent
             addError(name, errorMessage);
             addRegex(name, regex);
             Label nameLabel = new Label();
-            nameLabel.Text = name;
+            nameLabel.Text = labelName;
             nameLabel.TextAlign = ContentAlignment.BottomLeft;
             Label errorLabel = new Label();
             errorLabel.Text = "blad";
@@ -56,7 +58,42 @@ namespace FormComponent
             errorLabels.Add(name, errorLabel);
             tableLayoutPanel2.Controls.Add(nameLabel ,1, tableLayoutPanel2.RowCount-3);
 
-            componentMap.Add(name, new TextBox());
+
+            switch (type.ToUpper())
+            {
+                case "TEXT":
+                    componentMap.Add(name, new TextBox());
+                    break;
+                case "PASSWORD":
+                    TextBox passwordFied = new TextBox();
+                    passwordFied.PasswordChar = '*';
+                    componentMap.Add(name, passwordFied);
+                    break;
+                case "COMBOBOX":
+                    ComboBox comboBox = new ComboBox();
+                    // add options
+                    componentMap.Add(name, comboBox);
+                    break;
+                case "CHECKBOX":
+                    CheckBox radio= new CheckBox();
+                    componentMap.Add(name, radio);
+                    break;
+                case "DATE":
+                    DateTimePicker dateTimePicker = new DateTimePicker();
+                    componentMap.Add(name, dateTimePicker);
+                    break;
+                case "NUMBER":
+                    NumericUpDown numberField = new NumericUpDown();
+                    componentMap.Add(name, numberField);
+                    break;
+
+            }
+            
+
+
+
+
+
             componentMap.TryGetValue(name, out Control textfield);
             tableLayoutPanel2.Controls.Add(textfield, 1, tableLayoutPanel2.RowCount-2);
             tableLayoutPanel2.Controls.Add(errorLabel,1, tableLayoutPanel2.RowCount-1);
@@ -123,7 +160,19 @@ namespace FormComponent
                 if (!validateField(entry.Key)) {
                     isFormValid = false;
                 }
-                json += entry.Key.ToString() + ":" + "\"" + entry.Value.Text + "\"";
+                if(entry.Value.GetType() == typeof(CheckBox))
+                {
+                    json += entry.Key.ToString() + ":" + "\"" + ((CheckBox) entry.Value).Checked + "\"";
+                }
+                else if (entry.Value.GetType() == typeof(ComboBox))
+                {
+                    json += entry.Key.ToString() + ":" + "\"" + ((ComboBox) entry.Value).SelectedItem.ToString() + "\"";
+                }
+                else
+                {
+                    json += entry.Key.ToString() + ":" + "\"" + entry.Value.Text + "\"";
+                }
+               
               
             }
        
@@ -154,6 +203,11 @@ namespace FormComponent
             {
                 entry.Value.Text = "";
             }
+        }
+
+        private void numericField(object sender, EventArgs e)
+        {
+             // validation
         }
     }
 }

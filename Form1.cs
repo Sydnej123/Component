@@ -14,13 +14,24 @@ namespace FormComponent
             form.Height = 800;
             form.setControl(textBox4);
             this.Controls.Add(form);
-            
+            comboBox1.Items.Add("password");
+            comboBox1.Items.Add("text");
+            comboBox1.Items.Add("combobox");
+            comboBox1.Items.Add("checkbox");
+            comboBox1.Items.Add("date");
+            comboBox1.Items.Add("number");
+            comboBox1.SelectedIndex = 0;
            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            form.addField(textBox1.Text, "aa", textBox2.Text, textBox3.Text);
-        }     
+            form.addField(textBox5.Text, textBox1.Text, comboBox1.SelectedItem.ToString(), textBox2.Text, textBox3.Text);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
