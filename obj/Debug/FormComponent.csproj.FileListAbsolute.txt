@@ -8,3 +8,13 @@ C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.
 C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.exe
 C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.pdb
 C:\Users\songo\source\repos\FormComponent\FormComponent\obj\Debug\FormComponent.Form.resources
+C:\Users\songo\Desktop\Git\Component\bin\Debug\FormComponent.exe.config
+C:\Users\songo\Desktop\Git\Component\bin\Debug\FormComponent.exe
+C:\Users\songo\Desktop\Git\Component\bin\Debug\FormComponent.pdb
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.csprojAssemblyReference.cache
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.Form.resources
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.Form1.resources
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.Properties.Resources.resources
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.csproj.GenerateResource.cache
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.exe
+C:\Users\songo\Desktop\Git\Component\obj\Debug\FormComponent.pdb
